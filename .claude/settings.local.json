@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "WebFetch(domain:www.airbnb.com)",
+      "Bash(rm:*)"
+    ],
+    "deny": []
+  }
+}

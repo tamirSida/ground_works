@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GroundWorks - Airbnb for R&D</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="logo.png" alt="GroundWorks Logo" class="logo">
+                <div class="brand-text">
+                    <h1>GroundWorks</h1>
+                    <span class="tagline">Real-World-as-a-Service</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link">Browse Sites</a>
+                <a href="#" class="nav-link">List Your Site</a>
+                <a href="#" class="nav-link">About</a>
+                <button class="btn-primary">Sign In</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">Access Real-World Testing Environments</h2>
+                <p class="hero-subtitle">Connect with farms, facilities, and testing grounds for your AgTech, Mobility, and Climate Tech R&D needs</p>
+                
+                <div class="search-container">
+                    <div class="search-box">
+                        <div class="search-field">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" placeholder="Where do you need to test?">
+                        </div>
+                        <div class="search-field">
+                            <label for="industry">Industry</label>
+                            <select id="industry">
+                                <option value="">All Industries</option>
+                                <option value="agtech">AgTech</option>
+                                <option value="mobility">Mobility</option>
+                                <option value="robotics">Robotics</option>
+                                <option value="climate">Climate Tech</option>
+                            </select>
+                        </div>
+                        <div class="search-field">
+                            <label for="duration">Duration</label>
+                            <input type="text" id="duration" placeholder="How long?">
+                        </div>
+                        <button class="search-btn" onclick="searchSites()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters">
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterBy('all')">All Sites</button>
+                <button class="filter-btn" onclick="filterBy('agtech')">AgTech</button>
+                <button class="filter-btn" onclick="filterBy('mobility')">Mobility</button>
+                <button class="filter-btn" onclick="filterBy('robotics')">Robotics</button>
+                <button class="filter-btn" onclick="filterBy('climate')">Climate Tech</button>
+            </div>
+        </section>
+
+        <section class="listings">
+            <div class="listings-header">
+                <h3>Available Testing Sites</h3>
+                <span class="results-count" id="resultsCount">Loading...</span>
+            </div>
+            <div class="listings-grid" id="sitesGrid">
+                <!-- Site cards will be populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Site Details Modal -->
+    <div id="siteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <span class="close" onclick="closeSiteModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modalImage" src="" alt="" class="modal-image">
+                </div>
+                <div class="modal-details">
+                    <div class="modal-price-location">
+                        <div class="modal-price"></div>
+                        <div class="modal-location"></div>
+                    </div>
+                    <div class="modal-industry"></div>
+                    <div class="modal-rating"></div>
+                    <div class="modal-description"></div>
+                    
+                    <div class="modal-section">
+                        <h3>Available Services</h3>
+                        <div id="modalServices" class="services-list"></div>
+                    </div>
+                    
+                    <div class="modal-section">
+                        <h3>Features</h3>
+                        <div id="modalFeatures" class="features-list"></div>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button class="btn-primary btn-book">Book This Site</button>
+                        <button class="btn-secondary">Contact Owner</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
